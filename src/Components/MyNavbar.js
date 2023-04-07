@@ -1,10 +1,10 @@
 /** @format */
 import {css} from '@nextui-org/react'
 import {Navbar, Button, Link, Text} from '@nextui-org/react'
-import {media} from './media'
+import {media} from '/home/razal/projects/fire-test/src/media.js'
 
-function LaNavbar() {
-  const collapseItems = ['Features', 'Customers', 'Pricing', 'Company']
+function MyNavbar() {
+  const collapseItems = ['Event', 'Products', 'Contact us', 'About']
   const HideIn = 'xsMax' | 'smMax' | 'mdMax' | 'lgMax' | 'xlMax'
 
   return (
@@ -16,12 +16,10 @@ function LaNavbar() {
         </Text>
       </Navbar.Brand>
       <Navbar.Content hideIn="xs" variant="highlight-rounded">
-        <Navbar.Link href="#">Features</Navbar.Link>
-        <Navbar.Link isActive href="#">
-          Customers
-        </Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Company</Navbar.Link>
+        <Navbar.Link href="#">Event</Navbar.Link>
+        <Navbar.Link href="#">Products</Navbar.Link>
+        <Navbar.Link href="#">Contact us</Navbar.Link>
+        <Navbar.Link href="#"> About</Navbar.Link>
       </Navbar.Content>
       <Navbar.Content>
         <Navbar.Link color="inherit" href="#">
@@ -52,4 +50,4 @@ function LaNavbar() {
   )
 }
 
-export default LaNavbar
+export default MyNavbar
