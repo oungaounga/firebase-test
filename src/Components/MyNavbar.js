@@ -16,10 +16,10 @@ function MyNavbar() {
         </Text>
       </Navbar.Brand>
       <Navbar.Content hideIn="xs" variant="highlight-rounded">
-        <Navbar.Link href="#">Event</Navbar.Link>
+        <Navbar.Link href="#">Events</Navbar.Link>
         <Navbar.Link href="#">Products</Navbar.Link>
-        <Navbar.Link href="#">Contact us</Navbar.Link>
-        <Navbar.Link href="#"> About</Navbar.Link>
+        <Navbar.Link href="#">Contact Us</Navbar.Link>
+        <Navbar.Link href="#">About</Navbar.Link>
       </Navbar.Content>
       <Navbar.Content>
         <Navbar.Link color="inherit" href="#">

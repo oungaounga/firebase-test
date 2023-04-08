@@ -11,13 +11,18 @@ import {
   addDoc,
   deleteDoc,
 } from 'firebase/firestore/lite'
+import {
+  getAuth,
+  connectAuthEmulator,
+  signInWithEmailAndPassword,
+} from 'firebase/auth'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {useEffect, Fragment} from 'react'
+import {useEffect, useState, Fragment} from 'react'
 import {Container, Spacer, Text, Col, Card} from '@nextui-org/react'
 import MyCarousel from './Components/MyCarousel'
 import MyNavbar from './Components/MyNavbar'
 import Upcoming from './Components/Upcoming'
-import LoggedPage from './pages/Login'
+import UserPage from './Pages/UserPage/UserPage'
 const firebaseConfig = {
   apiKey: 'AIzaSyDDDSPSpUYtkSOdbOg5Yyuoc5VME_gjv5Q',
   authDomain: 'fire-test-3c6f5.firebaseapp.com',
@@ -28,9 +33,14 @@ const firebaseConfig = {
 }
 console.clear()
 const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
-const usersCollection = collection(db, 'users')
-const docRef = doc(db, 'users', '8blZVi95oK8CceTwsYi3')
+// const db = getFirestore(app)
+// const usersCollection = collection(db, 'users')
+// const docRef = doc(db, 'users', '8blZVi95oK8CceTwsYi3')
+const auth = getAuth(app)
+function authTest() {
+  console.log('EXEC : auth testing func')
+  connectAuthEmulator(auth, 'http://localhost:3000/')
+}
 
 const userQuentin = {
   name: 'quentin',
@@ -111,15 +121,19 @@ function App() {
   //     console.log(e)
   //   })
 
+  const [authCreds, setAuthCreds] = useState({email: '', password: ''})
+
   return (
     <>
       <Container>
         <MyNavbar />
         <Spacer y={0.5} />
-        <LoggedPage />
-        <MyCarousel />
+        <Spacer y={0.5} />
+        {/* <MyCarousel />
         <Spacer y={1} />
-        <Upcoming />
+        <Upcoming /> */}
+        <UserPage auth={{authCreds, setAuthCreds}} />
+        <Spacer y={1} />
       </Container>
     </>
   )
