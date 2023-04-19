@@ -6,16 +6,11 @@ import Upcoming from './Upcoming'
 import AboutUsSection from './AboutUsSection'
 import ContactUsSection from './ContactUsSection'
 
-function HomePage(props) {
-  // const {whichPage} = props.goto
-  // const {setWhichPage} = props.goto
-  // console.log(setWhichPage)
-  // console.log(whichPage)
+function HomePage() {
   return (
     <>
       <MyCarousel />
       <Spacer y={3} />
-      {/* <Upcoming goto={{whichPage, setWhichPage}} /> */}
       <Upcoming />
       <Spacer y={3} />
       <AboutUsSection />

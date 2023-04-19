@@ -13,7 +13,12 @@ import {
   Grid,
 } from '@nextui-org/react'
 import {Map, Marker} from 'pigeon-maps'
-import {inHowManyDays, inHowManyDaysString, getWhatTimeString} from '../../App'
+// import {inHowManyDays, inHowManyDaysString, getWhatTimeString} from '../../App'
+import {
+  inHowManyDays,
+  inHowManyDaysString,
+  getWhatTimeString,
+} from '../../../App'
 
 const mediaCardStyle = {
   // minHeight: '24rem',
