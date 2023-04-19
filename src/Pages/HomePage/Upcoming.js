@@ -1,6 +1,9 @@
 /** @format */
 import {useRef} from 'react'
 import {Card, Col, Text, Row, Button} from '@nextui-org/react'
+import {ReactComponent as ChevronRight} from './icons/Chevron Right.svg'
+import {ReactComponent as ChevronLeft} from './icons/Chevron Left.svg'
+import EventSmallCard from './EventSmallCard'
 
 function makeCard(img, index) {
   return (
@@ -63,19 +66,25 @@ function makeCard(img, index) {
   )
 }
 
-function Upcoming() {
+function Upcoming(props) {
+  // const {whichPage} = props.goto
+  // const {setWhichPage} = props.goto
+  // console.log(setWhichPage)
   const divRef = useRef()
-  const imgs = [
-    './cardImg.jpg',
-    './cardImg2.jpg',
-    './cardImg3.jpg',
-    './cardImg4.jpg',
-    './cardImg5.jpg',
-    './cardImg6.jpg',
-  ]
-  const cards = imgs.map((item, index) => {
-    return makeCard(item, index)
-  })
+  // const imgs = [
+  //   './cardImg.jpg',
+  //   './cardImg2.jpg',
+  //   './cardImg3.jpg',
+  //   './cardImg4.jpg',
+  //   './cardImg5.jpg',
+  //   './cardImg6.jpg',
+  // ]
+  // const cards = imgs.map((item, index) => {
+  //   return makeCard(item, index)
+  // })
+
+  // const cards = <EventSmallCard goto={{whichPage, setWhichPage}} />
+  const cards = <EventSmallCard />
 
   function handleRightClick() {
     let byW = divRef.current.firstChild.clientWidth
@@ -86,34 +95,65 @@ function Upcoming() {
     divRef.current.scrollBy({top: 0, left: byW - 12, behavior: 'smooth'})
   }
   return (
-    <div>
-      <div className="relative scroll-smooth">
+    <div className="relative">
+      <div id="Upcoming">
         <Button
+          auto
+          color="gradient"
           css={{
             position: 'absolute',
-            top: '5rem',
+            top: '50%',
+            transform: 'translate(0, 50%)',
             left: 0,
             zIndex: 10,
+            borderRadius: '50%',
           }}
           onPress={() => handleLeftClick()}
-        >
-          left
-        </Button>
+          icon={<ChevronLeft set="curved" primaryColor="blueviolet" />}
+        />
         <Button
+          auto
+          color="gradient"
           css={{
             position: 'absolute',
-            top: '5rem',
+            top: '50%',
+            transform: 'translate(0, 50%)',
             right: 0,
             zIndex: 10,
+            borderRadius: '50%',
           }}
           onPress={() => handleRightClick()}
-        >
-          right
-        </Button>
+          icon={<ChevronRight set="curved" primaryColor="blueviolet" />}
+        />
       </div>
 
-      <div ref={divRef} className="flex flex-nowrap gap-x-3 overflow-x-scroll">
-        {cards}
+      <div
+        ref={divRef}
+        className="relative flex flex-nowrap gap-x-3 overflow-x-scroll scrollbar-hide scroll-smooth"
+        // >
+        //   <Button
+        //     auto
+        //     color="gradient"
+        //     css={{
+        //       top: '50%',
+        //       transform: 'translate(0, 50%)',
+        //       left: 0,
+        //       zIndex: 10,
+        //       borderRadius: '50%',
+        //     }}
+        //     onPress={() => handleLeftClick()}
+        //     icon={<ChevronLeft set="curved" primaryColor="blueviolet" />}
+      >
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
+        <EventSmallCard />
       </div>
     </div>
   )

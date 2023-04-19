@@ -6,10 +6,13 @@ import './index.css'
 import App from './App'
 import nextTheme from './Components/nextThemes'
 import {NextUIProvider, Text} from '@nextui-org/react'
+import {BrowserRouter} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <NextUIProvider theme={nextTheme}>
-    <App />
-  </NextUIProvider>
+  <BrowserRouter>
+    <NextUIProvider theme={nextTheme}>
+      <App />
+    </NextUIProvider>
+  </BrowserRouter>
 )
