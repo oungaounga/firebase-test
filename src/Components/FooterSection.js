@@ -157,7 +157,6 @@ function FooterSection(props) {
           <div
             className="hover:cursor-pointer"
             onClick={() => {
-              console.log('facebook')
               window.open('mailto:contact@erasmusmontpellier.fr', '_blank')
             }}
           >
